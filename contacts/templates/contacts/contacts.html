@@ -1,0 +1,32 @@
+{% extends "./layout/base.html" %}
+
+{% block content %}
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th> Nom </th>
+                <th> Prenom </th>
+                <th> Email </th>
+                <th> Phone </th>
+                <th> Actions </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for contact in contacts  %}
+                <tr>
+                    <td> {{forloop.counter}} </td>
+                    <td> {{contact.nom}} </td>
+                    <td> {{contact.prenom}} </td>
+                    <td> {{contact.email}} </td>
+                    <td> {{contact.phone}} </td>
+                    <td> 
+                        <a href="{% url 'edite' contact.id %}">Edit</a>
+                        <a href="{% url 'show' contact.id %}">Show</a>
+                        <a href="{% url 'delete' contact.id %}">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock content %}

@@ -1,0 +1,17 @@
+{% extends './layout/base.html' %}
+
+{% block content %}
+    <form action="{% url 'store' %}" method="POST">
+        {% csrf_token %}
+        <label for="nom">Nom</label>
+        <input type="text" id="nom" name="nom">
+        <label for="prenom">Prenom</label>
+        <input type="text" id="prenom" name="prenom">
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email">
+        <label for="phone">Phone</label>
+        <input type="text" id="phone" name="phone">
+        <input type="submit" value="Creer">
+        <a href="{% url 'contacts' %}"> Annuler </a>
+    </form>
+{% endblock content %}

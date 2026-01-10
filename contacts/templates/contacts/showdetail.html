@@ -1,0 +1,10 @@
+{% extends './layout/base.html' %}
+
+{% block content %}
+  <p>Nom : {{contact.nom}}</p>
+  <p>Prenom : {{contact.prenom}}</p>
+  <p>Email : {{contact.email}}</p>
+  <p>Phone : {{contact.phone}}</p>
+
+  <a href="{% url 'contacts' %}">Back</a>
+{% endblock content %}
