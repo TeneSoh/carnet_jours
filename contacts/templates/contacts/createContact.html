@@ -1,7 +1,7 @@
 {% extends './layout/base.html' %}
 
 {% block content %}
-    <form action="{% url 'store' %}" method="POST">
+    <form action="{% url 'store' %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <label for="nom">Nom</label>
         <input type="text" id="nom" name="nom">
@@ -11,6 +11,8 @@
         <input type="text" id="email" name="email">
         <label for="phone">Phone</label>
         <input type="text" id="phone" name="phone">
+        <label for="image">Image</label>
+        <input type="file" id="image" name="image">
         <input type="submit" value="Creer">
         <a href="{% url 'contacts' %}"> Annuler </a>
     </form>
