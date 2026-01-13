@@ -812,10 +812,13 @@ input:where([type='file']):focus {
   height: 100vh;
 }
 
+<<<<<<< HEAD
+=======
 .max-w-7xl {
   max-width: 80rem;
 }
 
+>>>>>>> e39e55f92e7c5a9fed92d01f7a63baffb7683e7d
 .cursor-pointer {
   cursor: pointer;
 }

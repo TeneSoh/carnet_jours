@@ -9,6 +9,7 @@
                 <th> Prenom </th>
                 <th> Email </th>
                 <th> Phone </th>
+                <th> Image </th>
                 <th> Actions </th>
             </tr>
         </thead>
@@ -20,6 +21,15 @@
                     <td> {{contact.prenom}} </td>
                     <td> {{contact.email}} </td>
                     <td> {{contact.phone}} </td>
+                    <td> 
+                        <div>
+                            {% if contact.image %}
+                                <img src="{{contact.image.url}}" alt="" srcset="">
+                            {% else %}
+                                <p>No image</p>
+                            {% endif %}
+                        </div> 
+                    </td>
                     <td> 
                         <a href="{% url 'edite' contact.id %}">Edit</a>
                         <a href="{% url 'show' contact.id %}">Show</a>

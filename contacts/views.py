@@ -1,5 +1,6 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib import messages
+from django.template.context_processors import request
 from .models import Contact
 # Create your views here.
 def index(request):
@@ -8,18 +9,18 @@ def index(request):
 
 def store(request):
     if(request.method == 'POST'):
-        
+        file = request.FILES.get('image')
         Contact.objects.create(
             nom = request.POST['nom'],
             prenom = request.POST['prenom'],
             email = request.POST['email'],
-            phone = request.POST['phone']
+            phone = request.POST['phone'],
+            image =  file
         )
 
         contacts = Contact.objects.all()
-        print(contacts[0].nom)
-
-        return render( request, 'contacts/contacts.html',  {'contacts': contacts})
+        return redirect('contacts')
+        # return render( request, 'contacts/contacts.html',  {'contacts': contacts})
 
     
     return render(request, 'contacts/createContact.html')
