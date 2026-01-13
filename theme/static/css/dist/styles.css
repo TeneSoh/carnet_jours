@@ -808,6 +808,10 @@ input:where([type='file']):focus {
   height: 100vh;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
 .items-center {
   align-items: center;
 }
