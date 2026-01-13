@@ -8,7 +8,7 @@ def index(request):
 
 def store(request):
     if(request.method == 'POST'):
-        print(f'{request.POST['nom']}')
+        
         Contact.objects.create(
             nom = request.POST['nom'],
             prenom = request.POST['prenom'],
