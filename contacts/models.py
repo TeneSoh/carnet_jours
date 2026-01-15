@@ -8,4 +8,4 @@ class Contact(models.Model):
     prenom = models.CharField(max_length=255)
     email = models.EmailField(max_length=255)
     phone = models.CharField(max_length=255)
-    image = models.ImageField(upload_to='media/',null=True, blank=True)
+    image = models.ImageField(upload_to='medias', null=True, blank=True)

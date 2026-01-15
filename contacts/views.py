@@ -9,13 +9,13 @@ def index(request):
 
 def store(request):
     if(request.method == 'POST'):
-        file = request.FILES.get('image')
+        file = request.Files.get('image')
         Contact.objects.create(
             nom = request.POST['nom'],
             prenom = request.POST['prenom'],
             email = request.POST['email'],
             phone = request.POST['phone'],
-            image =  file
+            image = file
         )
 
         contacts = Contact.objects.all()
