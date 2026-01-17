@@ -1,16 +1,63 @@
 {% extends './layout/base.html' %}
 
 {% block content %}
-    <form action="{% url 'store' %}" method="POST">
+    <form action="{% url 'store' %}" method="POST" class="overflow-auto">
         {% csrf_token %}
-        <label for="nom">Nom</label>
+        {% comment %} {{forms.as_p}} {% endcomment %}
+        <div>
+            <label class="text-green-700" for="no">{{forms.nom.label_tag}}</label>
+            {{forms.nom}}
+        </div>
+        {% if forms.nom.errors %}
+            <div class="border-1 border-red-500 bg-red-300">
+                {% for error in forms.nom.errors %}
+                    <p class="text-red-700">{{error}}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+            
+        <div>
+            {{forms.prenom.label_tag}}
+            {{forms.prenom}}
+        </div>
+        {% if forms.prenom.errors %}
+            <div class="border-1 border-red-500 bg-red-300">
+                {% for error in forms.prenom.errors %}
+                    <p class="text-red-700">{{error}}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+            
+        <div>
+            {{forms.email.label_tag}}
+            {{forms.email}}
+        </div>
+        {% if forms.email.errors %}
+            <div class="border-1 border-red-500 bg-red-300">
+                {% for error in forms.email.errors %}
+                    <p class="text-red-700">{{error}}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <div>
+            {{forms.phone.label_tag}}
+            {{forms.phone}}
+            {% if forms.phone.errors %}
+                <div class="border-1 border-red-500 bg-red-300">
+                    {% for error in forms.phone.errors %}
+                        <p class="text-red-700">{{error}}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+        {% comment %} <label for="nom">Nom</label>
         <input type="text" id="nom" name="nom">
         <label for="prenom">Prenom</label>
         <input type="text" id="prenom" name="prenom">
         <label for="email">Email</label>
         <input type="text" id="email" name="email">
         <label for="phone">Phone</label>
-        <input type="text" id="phone" name="phone">
+        <input type="text" id="phone" name="phone"> {% endcomment %}
         <input type="submit" value="Creer">
         <a href="{% url 'contacts' %}"> Annuler </a>
     </form>
