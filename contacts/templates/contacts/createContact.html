@@ -3,14 +3,42 @@
 {% block content %}
     <form action="{% url 'store' %}" method="POST">
         {% csrf_token %}
-        <label for="nom">Nom</label>
+        {{forms.as_p}}
+
+        {% comment %} <div>
+            <label class="text-green-500" for="nom">
+                {{forms.nom.label_tag}}
+                {{forms.nom}}
+            </label>
+        </div>
+
+        <div>
+            <label for="">
+                {{forms.prenom.label_tag}}
+                {{forms.prenpm}}
+            </label>
+        </div>
+
+        <div>
+            <label for=""></label>
+        </div>
+
+        <div>
+            <label for=""></label>
+        </div>
+
+        <div>
+            <label for=""></label>
+        </div> {% endcomment %}
+
+        <!-- {% comment %} <label for="nom">Nom</label>
         <input type="text" id="nom" name="nom">
         <label for="prenom">Prenom</label>
         <input type="text" id="prenom" name="prenom">
         <label for="email">Email</label>
         <input type="text" id="email" name="email">
         <label for="phone">Phone</label>
-        <input type="text" id="phone" name="phone">
+        <input type="text" id="phone" name="phone"> {% endcomment %} -->
         <input type="submit" value="Creer">
         <a href="{% url 'contacts' %}"> Annuler </a>
     </form>

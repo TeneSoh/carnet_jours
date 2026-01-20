@@ -21,9 +21,9 @@
                     <td> {{contact.email}} </td>
                     <td> {{contact.phone}} </td>
                     <td> 
-                        <a href="{% url 'edite' contact.id %}">Edit</a>
-                        <a href="{% url 'show' contact.id %}">Show</a>
-                        <a href="{% url 'delete' contact.id %}">Delete</a>
+                        <a href="{% url 'edite' contact.pk %}">Edit</a>
+                        <a href="{% url 'show' contact.pk %}">Show</a>
+                        <a href="{% url 'delete' contact.pk %}">Delete</a>
                     </td>
                 </tr>
             {% endfor %}
