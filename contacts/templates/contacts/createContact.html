@@ -3,7 +3,35 @@
 {% block content %}
     <form action="{% url 'store' %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        <label for="nom">Nom</label>
+        {{forms.as_p}}
+
+        {% comment %} <div>
+            <label class="text-green-500" for="nom">
+                {{forms.nom.label_tag}}
+                {{forms.nom}}
+            </label>
+        </div>
+
+        <div>
+            <label for="">
+                {{forms.prenom.label_tag}}
+                {{forms.prenpm}}
+            </label>
+        </div>
+
+        <div>
+            <label for=""></label>
+        </div>
+
+        <div>
+            <label for=""></label>
+        </div>
+
+        <div>
+            <label for=""></label>
+        </div> {% endcomment %}
+
+        <!-- {% comment %} <label for="nom">Nom</label>
         <input type="text" id="nom" name="nom">
         <label for="prenom">Prenom</label>
         <input type="text" id="prenom" name="prenom">
